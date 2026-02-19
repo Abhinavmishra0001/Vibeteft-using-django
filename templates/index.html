@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheTeftClub — Premium Streetwear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="left">
+            <div class="logo"></div>
+        </div>
+
+        <div class="center">
+            <div class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'shop' %}">Collection</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button>Search</button>
+            </div>
+
+            <div class="user-links">
+                <a href="/login">Login</a>
+                <a href="/signup">Sign Up</a>
+            </div>
+
+            <div class="cart">
+                🛒 Cart: <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">New Collection 2026</span>
+            <h1>Wear the <span class="hero-accent">Culture</span></h1>
+            <p>Premium streetwear crafted for those who define their own style. Limited drops, timeless pieces.</p>
+            <a href="{% url 'shop' %}" class="hero-cta">Shop Now →</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="section-header">
+            <h2>Our Collection</h2>
+            <p>Handpicked essentials for the modern wardrobe</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo2.png' %}" alt="Street Hoodie">
+                </div>
+                <div class="product-info">
+                    <h3>Street Hoodie</h3>
+                    <p class="product-price">₹1,999</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo3.png' %}" alt="Oversized T-Shirt">
+                </div>
+                <div class="product-info">
+                    <h3>Oversized T-Shirt</h3>
+                    <p class="product-price">₹999</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo4.png' %}" alt="Caps">
+                </div>
+                <div class="product-info">
+                    <h3>Caps</h3>
+                    <p class="product-price">₹499</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo5.png' %}" alt="Black Jeans">
+                </div>
+                <div class="product-info">
+                    <h3>Black Jeans</h3>
+                    <p class="product-price">₹1,299</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo6.png' %}" alt="White Hoodie">
+                </div>
+                <div class="product-info">
+                    <h3>White Hoodie</h3>
+                    <p class="product-price">₹1,999</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo7.png' %}" alt="Blue Jogger">
+                </div>
+                <div class="product-info">
+                    <h3>Blue Jogger</h3>
+                    <p class="product-price">₹1,299</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo8.png' %}" alt="Sneakers">
+                </div>
+                <div class="product-info">
+                    <h3>Sneakers</h3>
+                    <p class="product-price">₹1,499</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo9.png' %}" alt="Wool Cap">
+                </div>
+                <div class="product-info">
+                    <h3>Wool Cap</h3>
+                    <p class="product-price">₹899</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="{% static 'images/websitelogo10.png' %}" alt="White Jeans">
+                </div>
+                <div class="product-info">
+                    <h3>White Jeans</h3>
+                    <p class="product-price">₹1,299</p>
+                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>TheTeftClub is your go-to destination for trendy street wear and exclusive fashion.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'shop' %}">Shop</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘 Facebook</a>
+                    <a href="#" class="social-icon">🐦 Twitter</a>
+                    <a href="#" class="social-icon">📸 Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 TheTeftClub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+
+            // Brief animation on the cart badge
+            const cart = document.querySelector('.cart');
+            cart.style.transform = 'scale(1.15)';
+            setTimeout(() => { cart.style.transform = 'scale(1)'; }, 200);
+        }
+    </script>
+</body>
+
+</html>

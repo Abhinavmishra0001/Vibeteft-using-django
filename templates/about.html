@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — TheTeftClub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="left">
+            <div class="logo"></div>
+        </div>
+        <div class="center">
+            <div class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'shop' %}">Collection</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+        </div>
+        <div class="right">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button>Search</button>
+            </div>
+            <div class="user-links">
+                <a href="/login">Login</a>
+                <a href="/signup">Sign Up</a>
+            </div>
+            <div class="cart">🛒 Cart: <span id="cart-count">0</span></div>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <span class="hero-badge">Our Story</span>
+            <h1>About <span class="hero-accent">TheTeftClub</span></h1>
+            <p>Premium fashion made simple & affordable. We're building a brand that speaks to the culture.</p>
+        </div>
+    </section>
+
+    <!-- Who We Are -->
+    <section class="about-content">
+        <div class="about-block">
+            <div class="about-text-block">
+                <h2>Who We Are</h2>
+                <p>TheTeftClub is a modern fashion brand focused on delivering premium quality clothing with comfort and
+                    style. We believe fashion should be simple, affordable, and classy.</p>
+                <p>Founded with a passion for streetwear culture, we curate collections that blend urban aesthetics with
+                    everyday wearability. Every piece is designed to make you feel confident and look effortless.</p>
+            </div>
+            <div class="about-img-block">
+                <img src="{% static 'images/websitelogo.png' %}" alt="About TheTeftClub">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mv-section">
+        <div class="section-header">
+            <h2>What Drives Us</h2>
+            <p>Our mission and vision guide everything we do</p>
+        </div>
+        <div class="mv-grid">
+            <div class="mv-card">
+                <div class="mv-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To provide high-quality fashion that fits every lifestyle while maintaining affordability and
+                    sustainability.</p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">🔭</div>
+                <h3>Our Vision</h3>
+                <p>To become a trusted fashion brand known for quality, simplicity, and customer satisfaction worldwide.
+                </p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">💎</div>
+                <h3>Our Values</h3>
+                <p>Quality craftsmanship, sustainable practices, inclusive pricing, and a deep respect for street
+                    culture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-section">
+        <div class="section-header">
+            <h2>Why Choose Us</h2>
+            <p>What makes TheTeftClub different</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <span class="why-num">01</span>
+                <h3>Premium Quality</h3>
+                <p>Every product goes through strict quality checks to ensure you get the best.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-num">02</span>
+                <h3>Affordable Pricing</h3>
+                <p>Luxury streetwear at prices that won't break the bank.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-num">03</span>
+                <h3>Modern Designs</h3>
+                <p>Trendy, contemporary designs that keep you ahead of the curve.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-num">04</span>
+                <h3>Customer First</h3>
+                <p>Your satisfaction is our priority. Easy returns and dedicated support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>TheTeftClub is your go-to destination for trendy street wear and exclusive fashion.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'shop' %}">Shop</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘 Facebook</a>
+                    <a href="#" class="social-icon">🐦 Twitter</a>
+                    <a href="#" class="social-icon">📸 Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TheTeftClub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
