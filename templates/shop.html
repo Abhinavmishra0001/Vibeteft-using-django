@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- React & Babel -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 
 <body>
@@ -49,123 +53,8 @@
         </div>
     </section>
 
-    <!-- Shop Filters -->
-    <section class="shop-filters">
-        <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
-        <button class="filter-btn" onclick="filterProducts('hoodie', this)">Hoodies</button>
-        <button class="filter-btn" onclick="filterProducts('tshirt', this)">T-Shirts</button>
-        <button class="filter-btn" onclick="filterProducts('jeans', this)">Jeans</button>
-        <button class="filter-btn" onclick="filterProducts('cap', this)">Caps</button>
-        <button class="filter-btn" onclick="filterProducts('shoes', this)">Shoes</button>
-    </section>
-
-    <!-- Products Grid -->
-    <section class="products-section">
-        <div class="product-grid" id="product-grid">
-            <div class="product-card" data-category="hoodie">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo2.png' %}" alt="Street Hoodie">
-                    <span class="product-tag">Best Seller</span>
-                </div>
-                <div class="product-info">
-                    <h3>Street Hoodie</h3>
-                    <p class="product-price">₹1,999</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="tshirt">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo3.png' %}" alt="Oversized T-Shirt">
-                    <span class="product-tag">Trending</span>
-                </div>
-                <div class="product-info">
-                    <h3>Oversized T-Shirt</h3>
-                    <p class="product-price">₹999</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="cap">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo4.png' %}" alt="Caps">
-                </div>
-                <div class="product-info">
-                    <h3>Caps</h3>
-                    <p class="product-price">₹499</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="jeans">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo5.png' %}" alt="Black Jeans">
-                </div>
-                <div class="product-info">
-                    <h3>Black Jeans</h3>
-                    <p class="product-price">₹1,299</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="hoodie">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo6.png' %}" alt="White Hoodie">
-                    <span class="product-tag">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>White Hoodie</h3>
-                    <p class="product-price">₹1,999</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="jeans">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo7.png' %}" alt="Blue Jogger">
-                </div>
-                <div class="product-info">
-                    <h3>Blue Jogger</h3>
-                    <p class="product-price">₹1,299</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="shoes">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo8.png' %}" alt="Sneakers">
-                    <span class="product-tag">Limited</span>
-                </div>
-                <div class="product-info">
-                    <h3>Sneakers</h3>
-                    <p class="product-price">₹1,499</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="cap">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo9.png' %}" alt="Wool Cap">
-                </div>
-                <div class="product-info">
-                    <h3>Wool Cap</h3>
-                    <p class="product-price">₹899</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="jeans">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo10.png' %}" alt="White Jeans">
-                </div>
-                <div class="product-info">
-                    <h3>White Jeans</h3>
-                    <p class="product-price">₹1,299</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- React Products & Filters Injector -->
+    <div id="react-products-root" data-show-filters="true"></div>
 
     <!-- Footer -->
     <footer>
@@ -208,28 +97,15 @@
 
     <script>
         let cartCount = 0;
-        function addToCart() {
+        window.addEventListener('reactAddToCart', (e) => {
             cartCount++;
             document.getElementById('cart-count').textContent = cartCount;
             const cart = document.querySelector('.cart');
             cart.style.transform = 'scale(1.15)';
             setTimeout(() => { cart.style.transform = 'scale(1)'; }, 200);
-        }
-
-        function filterProducts(category, btn) {
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = '';
-                    card.style.animation = 'fadeIn 0.4s ease';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
+        });
     </script>
+    <script type="text/babel" src="{% static 'js/ProductsCart.jsx' %}"></script>
 
 </body>
 

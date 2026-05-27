@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- React & Babel -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 
 <body>
@@ -56,114 +60,8 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section">
-        <div class="section-header">
-            <h2>Our Collection</h2>
-            <p>Handpicked essentials for the modern wardrobe</p>
-        </div>
-
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo2.png' %}" alt="Street Hoodie">
-                </div>
-                <div class="product-info">
-                    <h3>Street Hoodie</h3>
-                    <p class="product-price">₹1,999</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo3.png' %}" alt="Oversized T-Shirt">
-                </div>
-                <div class="product-info">
-                    <h3>Oversized T-Shirt</h3>
-                    <p class="product-price">₹999</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo4.png' %}" alt="Caps">
-                </div>
-                <div class="product-info">
-                    <h3>Caps</h3>
-                    <p class="product-price">₹499</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo5.png' %}" alt="Black Jeans">
-                </div>
-                <div class="product-info">
-                    <h3>Black Jeans</h3>
-                    <p class="product-price">₹1,299</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo6.png' %}" alt="White Hoodie">
-                </div>
-                <div class="product-info">
-                    <h3>White Hoodie</h3>
-                    <p class="product-price">₹1,999</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo7.png' %}" alt="Blue Jogger">
-                </div>
-                <div class="product-info">
-                    <h3>Blue Jogger</h3>
-                    <p class="product-price">₹1,299</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo8.png' %}" alt="Sneakers">
-                </div>
-                <div class="product-info">
-                    <h3>Sneakers</h3>
-                    <p class="product-price">₹1,499</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo9.png' %}" alt="Wool Cap">
-                </div>
-                <div class="product-info">
-                    <h3>Wool Cap</h3>
-                    <p class="product-price">₹899</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{% static 'images/websitelogo10.png' %}" alt="White Jeans">
-                </div>
-                <div class="product-info">
-                    <h3>White Jeans</h3>
-                    <p class="product-price">₹1,299</p>
-                    <button class="btn-add" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- React Products Injector -->
+    <div id="react-products-root" data-show-filters="false"></div>
 
     <!-- Footer -->
     <footer>
@@ -210,16 +108,15 @@
 
     <script>
         let cartCount = 0;
-        function addToCart() {
+        window.addEventListener('reactAddToCart', (e) => {
             cartCount++;
             document.getElementById('cart-count').textContent = cartCount;
-
-            // Brief animation on the cart badge
             const cart = document.querySelector('.cart');
             cart.style.transform = 'scale(1.15)';
             setTimeout(() => { cart.style.transform = 'scale(1)'; }, 200);
-        }
+        });
     </script>
+    <script type="text/babel" src="{% static 'js/ProductsCart.jsx' %}"></script>
 </body>
 
 </html>
